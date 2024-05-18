@@ -26,6 +26,7 @@ Route::get('/room_classes', [\App\Http\Controllers\ApiController::class,'room_cl
 
 // admin routes
 Route::middleware(correcttoken::class)->post('/addroom_class', [\App\Http\Controllers\ApiAdminController::class,'addroom_class'])->name('addroom_class');
+Route::middleware(correcttoken::class)->post('/addroom', [\App\Http\Controllers\ApiAdminController::class,'addroom'])->name('addroom');
 
 Route::post('/register', [\App\Http\Controllers\APIauthController::class,'register'])->name('register');
 Route::post('/login', [\App\Http\Controllers\APIauthController::class,'login'])->name('login');
