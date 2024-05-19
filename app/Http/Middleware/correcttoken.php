@@ -18,6 +18,10 @@ class correcttoken
     {
         $token = $request->bearerToken();
         $user = User::where('token',$token)->first();
+
+        if($token==null || $token==" "){
+            return response()->json(['error' => 'Ошибка доступа'], 403);
+        }
         if($user){
             return $next($request);
         }
