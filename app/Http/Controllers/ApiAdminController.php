@@ -62,4 +62,29 @@ class ApiAdminController extends Controller
     
         return response()->json(['message' => 'Добавлен новый номер']);
     }
+    public function deleteroom($id)
+    {
+        DB::table('rooms')->where('id', $id)->delete();
+        return response()->json(['message' => 'Номер удалён']);
+    }
+    public function deleteclass($id)
+    {
+        DB::table('room_class')->where('id', $id)->delete();
+        return response()->json(['message' => 'Класс номеров удалён']);
+    }
+    public function deletebook($id)
+    {
+        DB::table('bookings')->where('id', $id)->delete();
+        return response()->json(['message' => 'Бронь удалена']);
+    }
+    public function deleteguest($id)
+    {
+        DB::table('guests')->where('id', $id)->delete();
+        return response()->json(['message' => 'гость удален']);
+    }
+    public function books()
+    {
+        return DB::table('bookings')->get();
+    }
+
 }   

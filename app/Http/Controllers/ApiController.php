@@ -6,10 +6,6 @@ use Illuminate\Http\Request;
 
 class ApiController extends Controller
 {
-    public function index()
-    {
-       return DB::table('users')->get();
-    }
     public function room_classes()
     {
        return DB::table('room_class')->get();
@@ -22,6 +18,10 @@ class ApiController extends Controller
     public function rooms()
     {
        return DB::table('rooms')->get();
+    }
+    public function guests()
+    {
+       return DB::table('guests')->get();
     }
     public function addreview(Request $request)
     {
