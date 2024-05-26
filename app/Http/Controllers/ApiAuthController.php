@@ -27,7 +27,7 @@ public function login(Request $request)
 
     if (auth()->attempt($credentials)) {
         $user = User::where('login',$request->login)->first();
-        $token = "qw";
+        $token = bin2hex(random_bytes(32));
    
         $user->token = $token;
         $user->save();
